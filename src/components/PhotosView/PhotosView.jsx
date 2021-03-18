@@ -18,9 +18,15 @@ class PhotosView extends Component {
     isLoading: false,
   };
 
-  componentDidUpdate(prevPr, PrevSt) {
-    if (PrevSt.query !== this.state.query) {      
+  componentDidUpdate(prevPr, prevSt) {
+    if (prevSt.query !== this.state.query) {
       this.fetchPhotos();
+    }
+    if (prevSt.page !== this.state.page && prevSt.page !== 1) {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: 'smooth',
+      });
     }
   }
 

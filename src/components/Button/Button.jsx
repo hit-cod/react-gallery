@@ -5,12 +5,6 @@ import { Component } from 'react';
 class Button extends Component {
   handleClick = () => {
     this.props.onClick();
-    setTimeout(() => {
-      window.scrollTo({
-        top: document.documentElement.scrollHeight,
-        behavior: 'smooth',
-      });
-    }, 1000);
   };
 
   render() {
